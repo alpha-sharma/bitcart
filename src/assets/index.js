@@ -3,6 +3,8 @@ import Home from './home.svg';
 import Profile from './profile.svg';
 import Search from './search.svg';
 import Close from './close.svg';
+import Delete from './delete.svg';
+import Arrow from './arrow.svg';
 
 const Icons = ({
   width = 20,
@@ -27,6 +29,14 @@ const Icons = ({
     case 'Profile':
       return (
         <Profile width={width} height={height} fill={fill} stroke={stroke} />
+      );
+    case 'Delete':
+      return (
+        <Delete width={width} height={height} fill={fill} stroke={stroke} />
+      );
+    case 'Arrow':
+      return (
+        <Arrow width={width} height={height} fill={fill} stroke={stroke} />
       );
     default:
       return null;

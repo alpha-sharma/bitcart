@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
   rating: {
     alignSelf:'flex-start',
-    fontSize: 18,
+    fontSize: 20,
     fontWeight:'300',
     color: '#FFA500',
     marginBottom: 10,
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   ratingRate:{
     alignSelf:'flex-start',
     fontSize: 13,
+    fontWeight:'500',
     color: '#FFA500',
   },
   productDescription: {
