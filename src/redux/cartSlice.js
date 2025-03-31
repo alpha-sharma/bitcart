@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// Async function to load cart from AsyncStorage
 export const loadCart = createAsyncThunk('cart/loadCart', async () => {
   try {
     const cartData = await AsyncStorage.getItem('cart');
@@ -12,7 +11,6 @@ export const loadCart = createAsyncThunk('cart/loadCart', async () => {
   }
 });
 
-// Function to save cart to AsyncStorage
 const saveCartToStorage = async (cart) => {
   try {
     await AsyncStorage.setItem('cart', JSON.stringify(cart));
@@ -21,7 +19,6 @@ const saveCartToStorage = async (cart) => {
   }
 };
 
-// Function to handle adding items to cart
 const handleAddToCart = (state, product) => {
     console.log(product,'from redux');
     
@@ -35,10 +32,9 @@ const handleAddToCart = (state, product) => {
 
   state.totalQuantity += 1;
   state.totalPrice += product.price;
-  saveCartToStorage(state); // Save updated cart
+  saveCartToStorage(state); 
 };
 
-// Function to handle removing items from cart
 const handleRemoveFromCart = (state, productId) => {
   const itemIndex = state.cartItems.findIndex(item => item.id === productId);
 
@@ -49,10 +45,9 @@ const handleRemoveFromCart = (state, productId) => {
     state.cartItems.splice(itemIndex, 1);
   }
 
-  saveCartToStorage(state); // Save updated cart
+  saveCartToStorage(state); 
 };
 
-// Function to increase item quantity
 const handleIncreaseQuantity = (state, productId) => {
   const existingItem = state.cartItems.find(item => item.id === productId);
   if (existingItem) {
@@ -61,10 +56,9 @@ const handleIncreaseQuantity = (state, productId) => {
     state.totalPrice += existingItem.price;
   }
 
-  saveCartToStorage(state); // Save updated cart
+  saveCartToStorage(state); 
 };
 
-// Function to decrease item quantity
 const handleDecreaseQuantity = (state, productId) => {
   const existingItem = state.cartItems.find(item => item.id === productId);
   if (existingItem && existingItem.quantity > 1) {
@@ -72,11 +66,10 @@ const handleDecreaseQuantity = (state, productId) => {
     state.totalQuantity -= 1;
     state.totalPrice -= existingItem.price;
   } else {
-    // Remove the item if quantity becomes 0
     handleRemoveFromCart(state, productId);
   }
 
-  saveCartToStorage(state); // Save updated cart
+  saveCartToStorage(state); 
 };
 
 const initialState = {
@@ -110,7 +103,7 @@ const cartSlice = createSlice({
       state.cartItems = [];
       state.totalQuantity = 0;
       state.totalPrice = 0;
-      saveCartToStorage(state); // Save updated cart
+      saveCartToStorage(state); 
     },
   },
 

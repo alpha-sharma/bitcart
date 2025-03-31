@@ -17,12 +17,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row', 
     alignItems: 'center', 
   },
+  welcomeTextName:{
+   color:'#fff'
+  },
   headerRight: {
     alignItems: 'center',  
   },
   logo: {
-    width: 100,  
+    width: 40,  
     height: 40, 
+    borderRadius:50,
     resizeMode: 'contain', 
   },
   searchInput: {
@@ -110,6 +114,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     color: '#fff',
+  },
+  loaderContainer:{
+    backgroundColor:'#FFF',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
